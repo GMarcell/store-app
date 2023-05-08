@@ -2,15 +2,19 @@
     <div>
       <div class="products-container" id="product-grid">
         <div v-for="(product, index) in products" :key="index" class="test">
-          <div class="product">
-            <img :src="`${product.image}`" alt="poster" class="product-image"/>
-            <div class="info">
-              <h2>
-                {{ product.title.slice(0, 25) }}
-                <span v-if="product.title.length > 25">...</span>
-              </h2>
+          <NuxtLink
+            :to="{name: 'product-productId', params: {productId: product.id}}"
+          >
+            <div class="product">
+              <img :src="`${product.image}`" alt="poster" class="product-image"/>
+              <div class="info">
+                <h2>
+                  {{ product.title.slice(0, 25) }}
+                  <span v-if="product.title.length > 25">...</span>
+                </h2>
+              </div>
             </div>
-          </div>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -78,6 +82,10 @@
       .info{
           text-align: center;
           bottom: 0;
+          h2{
+            color: black;
+            font-style: normal;
+          }
         }
     }
   </style>

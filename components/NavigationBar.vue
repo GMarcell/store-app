@@ -25,6 +25,7 @@ export default {
     background-color: blue;
     display: flex;
     justify-content: space-between;
+    padding: 15px;
     .right{
       display: flex;
     }
